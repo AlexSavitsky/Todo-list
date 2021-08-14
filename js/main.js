@@ -80,3 +80,7 @@ function Test(){
         }        
 
 }
+
+function Huy (){
+    alert("Illya huesos");
+}
