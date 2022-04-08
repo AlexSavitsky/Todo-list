@@ -24,52 +24,43 @@
   <body>
     <noscript>Turn on Java Script</noscript>
 
-    <table id="tableToDo" class="table table-hover">
-      <h1 class="">ToDO List. Sava's demo version</h1>
-      <button
-        id="addTuskButton"
-        name="addTaskButton"
-        type="button"
-        class="btn btn-secondary"
-      >
-        Add Task
-      </button>
-      <thead>
+    <h1 class="mainName">ToDO List. Sava's demo version</h1>
+    <button id="addTaskButton" class="btn btn-secondary">Add Task</button>
+
+    <table id="tasksTable" class="table table-hover">
         <tr>
-          <th scope="col">№</th>
-          <th scope="col">Name task</th>
-          <th scope="col">Priority</th>
-          <th scope="col">Editing</th>
+          <th>№</th>
+          <th>Name task</th>
+          <th>Priority</th>
+          <th>Editing</th>
         </tr>
-      </thead>
+
+      <tbody id="secondTbody">
+
+      </tbody>
+      <div class="todos-wrapper"></div>
     </table>
 
-    <div class="todos-wrapper">
-      <table id="tableToDo" class="table table-hover">
-        <!-- <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>
-                    <div class="dropdown">
-                        <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Change Priority
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Todo</a></li>
-                            <li><a class="dropdown-item" href="#">In progress</a></li>
-                            <li><a class="dropdown-item" href="#">Done</a></li>
-                        </ul>
-                    </div>
-                </td>
-                <td>
-                    <button name="editTaskButton" type="button" class="btn btn-outline-warning">Edit</button>
-                    <button name= "deleteTaskButton" type="button" class="btn btn-outline-danger">Delete</button>
-                </td>
-            </tr>
-         </tbody> -->
-      </table>
+    <div class="popup">
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <form id="addTaskForm" class="row gy-2 gx-3 align-items-center">
+            <p1>Enter u'r new task</p1>
+            <div class="">
+              <input type="text" id="newTaskInput" placeholder="New task" />
+            </div>
+            <div class="">
+              <button
+                type="button"
+                id="createTaskButton"
+                class="btn btn-primary"
+              >
+                Create task
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 
