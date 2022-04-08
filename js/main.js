@@ -1,86 +1,16 @@
-   Test();
-   
-   alert("Вы попали на самый сложный тест в мире! В коце теста вас ожидает приз или наказание.");
-    alert("Если вы его пройдете успешно - вы гарантированно получите приз - если нет - безприкословно выполняете наказание!");
-if(confirm("Вы точно соглашаетесь с условиями теста?")){
-    alert("Поехали!");
-    if(prompt("Сколько будет 2 + 2?") == "4"){
-        alert("Молодец! Вопрос сложнее:");
-        if (prompt("2 + 2 * 2?") == 6) {
-            alert("Следующий вопрос:");
-            if(prompt("Извлеките корень из 36!") == 6) {
-                alert("Уже почти! Следующий вопрос:");
-                if(prompt("Что выберет Александр? 1) Hыбка с пивом. 2) Cуши с пивом. 3) Пицца с пивом. ") == 3){
-                    alert("Последний вопрос!");
-                    if(prompt("Что выберет Александр? 1) Поиграть на компе. 2) Посмотреть что-то. 3) Пойти пройтись. ") == 2){
-                        Prize();
-                    }else
-                        Punishment();
-                } else
-                    Punishment();
-            } else
-                Punishment();
-        } else
-            Punishment();
-    } else
-        Punishment();
-} else {
-    alert("Ну и пошел(а) нахуй!");
-}
+ const addTaskButton = document.getElementById('addTaskButton');
+ const todosWrapper = document.getElementsByClassName('todos-wrapper');
+ 
+// let tasks = [];
 
-function Prize(){
-    alert("Умница, вы прошли тест! :)");
-    switch (Number(prompt("Выберете ваш приз! Напишите цифру 1 - 4 включительно!"))) {
-        case 1:
-            alert("Ваш приз: Александр оплачивает суши!");
-            break;
-        case 2:
-            alert("Ваш приз: Сегодня вечером Александр сделает вам лизинг!");
-            break;
-        case 3:
-            alert("Ваш приз: Целый день Александр будет в Вашем подчинении!");
-            break;
-        case 4:
-            alert("Вы можете выбрать чем заняться завтра!");
-            break;
-        default:
-            alert("Вы тупой? Сказано же 1 - 4!");
-            break;
-    }
-}
+// function task(description){
+//     this.id = "0";
+//     this.nameTask = description;
+//     this.prioroty = "Todo";
+// }
 
-function Punishment(){
-    alert("Неудача :c");
-    switch (Number(prompt("Выберете ваше наказание! Напишите цифру 1 - 4 включительно!"))) {
-        case 1:
-            alert("Вы получаете пендаль от Александра!");
-            break;
-        case 2:
-            alert("Вы должны сделать сегодня сосинг Александру!");
-            break;
-        case 3:
-            alert("Вы оплачиваете сегодняшние суши!");
-            break;
-        case 4:
-            alert("Александр выбирает чем вы займетесь завтра!");
-            break;
-        default:
-            alert("Вы тупой? Сказано же 1 - 4!");
-            break;
-    }
-}
+// const updateLocal = () => {
+//     localStorage.setItem('tasks', JSON.stringify(tasks));
+// }
 
-function Test(){
-    var a = prompt("");
-        if(isNaN(Number(a))){
-            var b = Number(a) * 5;
-            alert(b);
-        } else {
-            alert("Poshel Nahuy");
-        }        
-
-}
-
-function Huy (){
-    alert("Illya huesos");
-}
+// addTaskButton.addEventListener('onclick', );

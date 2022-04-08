@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>JS Lern</title>
-</head>
-<body>
-    <noscript>Turn on Java Script</noscript> 
-    
-    <script src="js/main.js">  </script>
-</body>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <noscript>Turn on Java Script</noscript>
+
+    <table id="tableToDo" class="table table-hover">
+      <h1 class="">ToDO List. Sava's demo version</h1>
+      <button
+        id="addTuskButton"
+        name="addTaskButton"
+        type="button"
+        class="btn btn-secondary"
+      >
+        Add Task
+      </button>
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Name task</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Editing</th>
+        </tr>
+      </thead>
+    </table>
+
+    <div class="todos-wrapper">
+      <table id="tableToDo" class="table table-hover">
+        <!-- <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>
+                    <div class="dropdown">
+                        <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Change Priority
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Todo</a></li>
+                            <li><a class="dropdown-item" href="#">In progress</a></li>
+                            <li><a class="dropdown-item" href="#">Done</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <button name="editTaskButton" type="button" class="btn btn-outline-warning">Edit</button>
+                    <button name= "deleteTaskButton" type="button" class="btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+         </tbody> -->
+      </table>
+    </div>
+  </body>
+
+  <script src="js/main.js"></script>
 </html>
