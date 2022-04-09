@@ -4,50 +4,50 @@ const popup = document.querySelector(".popup");
 
 const submitTaskButton = document.getElementById("createTaskButton");
 const newTaskInput = document.getElementById("newTaskInput");
-const todosWrapper = document.querySelector(".todos-wrapper");
+const dropdownItem = document.getElementById("dropdown-item1");
 
-let tasksTable = document.getElementById("tasksTable");
-let secondTbody = document.getElementById("secondTbody");
+const secondTbody = document.getElementById("secondTbody");
+let dropdownButtons = [];
 
+//Creating an array of tasks and populating the created tasks from local storage
 let tasks;
 !localStorage.tasks
   ? (tasks = [])
   : (tasks = JSON.parse(localStorage.getItem("tasks")));
 
+//Tasks constructor
 function Task(description) {
-  this.id = 0;
+  this.id = tasks.length + 1;
   this.description = description;
-  this.priority = "Todo";
+  this.priority = "Change priority";
 }
 
+//Constructor creating a new task in the task table
 const createTemplate = (task, index) => {
-  var specific_tbody = secondTbody;
-  var newRow = specific_tbody.insertRow(-1);
-
-  var column = newRow.insertCell(0);
-
+  let newRow = secondTbody.insertRow(-1);
+  let column = newRow.insertCell(0);
   let column1 = newRow.appendChild(document.createElement("td"));
   let column2 = newRow.appendChild(document.createElement("td"));
   let column3 = newRow.appendChild(document.createElement("td"));
-  column.innerHTML = index;
+  column.innerHTML = task.id;
   column1.innerHTML = task.description;
-  column2.innerHTML = `<div class="priority">
+  column2.innerHTML = `<div class="priorityButton">
       <button
-        class="btn btn-secondary dropdown-toggle"
+        class="${updatePriority(index)}"
         type="button"
-        id="dropdownMenuButton1"
+        id="dropdownMenuButton"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Change Priority
+        ${tasks[index].priority}
       </button>
       <ul
         class="dropdown-menu"
         aria-labelledby="dropdownMenuButton1"
       >
-        <li><a class="dropdown-item" href="#">Todo</a></li>
-        <li><a class="dropdown-item" href="#">In progress</a></li>
-        <li><a class="dropdown-item" href="#">Done</a></li>
+        <li><a class="dropdown-item" onclick="changePriority(${index}, 'Todo')" href="#">Todo</a></li>
+        <li><a class="dropdown-item" onclick="changePriority(${index}, 'In progress')" href="#">In progress</a></li>
+        <li><a class="dropdown-item" onclick="changePriority(${index}, 'Done')" href="#">Done</a></li>
       </ul>`;
   column3.innerHTML = `<div class="buttons">
       <button
@@ -67,27 +67,61 @@ const createTemplate = (task, index) => {
   </div>`;
 };
 
+//Fill to do list
 const fillTodoList = () => {
-  todosWrapper.innerHTML = "";
+  secondTbody.innerHTML = "";
   if (tasks.length > 0) {
     tasks.forEach((item, index) => {
-      todosWrapper.innerHTML += createTemplate(item, index);
+      createTemplate(item, index);
     });
+    dropdownButtons = document.querySelectorAll("#dropdownMenuButton");
   }
 };
 
+//Show hiden form for add new task
 addTaskButton.addEventListener("click", () => {
   addTaskForm.classList.add("open");
   popup.classList.add("popup_open");
 });
 
+//Update local storage with new tasks
 const updateLocal = () => {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
+//Closed hiden form and add new tusk
 submitTaskButton.addEventListener("click", () => {
   tasks.push(new Task(newTaskInput.value));
+  newTaskInput.value = "";
+  popup.classList.remove("popup_open");
+  
   updateLocal();
   fillTodoList();
-  popup.classList.remove("popup_open");
 });
+
+//Change priority with dropdown button
+function changePriority(index, priority) {
+  tasks[index].priority = priority;
+  dropdownButtons[index].innerHTML = tasks[index].priority;
+
+  dropdownButtons[index].classList = updatePriority(index) + " show";
+  updateLocal();
+}
+
+//Update classes(styles) dropdown buttons
+const updatePriority = (index) => {
+  if (tasks[index].priority == "Todo") {
+    return "btn btn-info dropdown-toggle";
+  } else if (tasks[index].priority == "In progress") {
+    return "btn btn-warning dropdown-toggle";
+  } else if (tasks[index].priority == "Done") {
+    return "btn btn-success dropdown-toggle";
+  } else if (tasks[index].priority == "Change priority") {
+    return "btn btn-secondary dropdown-toggle";
+  }
+
+  updateLocal();
+};
+
+//Refresh task list on reboot
+fillTodoList();

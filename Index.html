@@ -24,40 +24,30 @@
   <body>
     <noscript>Turn on Java Script</noscript>
 
-    <h1 class="mainName">ToDO List. Sava's demo version</h1>
+    <h1>ToDO List. Sava's demo version</h1>
     <button id="addTaskButton" class="btn btn-secondary">Add Task</button>
 
-    <table id="tasksTable" class="table table-hover">
-        <tr>
-          <th>№</th>
-          <th>Name task</th>
-          <th>Priority</th>
-          <th>Editing</th>
-        </tr>
+    <table class="table table-hover">
+      <tr>
+        <th>№</th>
+        <th>Name task</th>
+        <th>Priority</th>
+        <th>Editing</th>
+      </tr>
 
-      <tbody id="secondTbody">
-
-      </tbody>
-      <div class="todos-wrapper"></div>
+      <tbody id="secondTbody"></tbody>
     </table>
 
     <div class="popup">
       <div class="popup__container">
         <div class="popup__wrapper">
           <form id="addTaskForm" class="row gy-2 gx-3 align-items-center">
-            <p1>Enter u'r new task</p1>
-            <div class="">
-              <input type="text" id="newTaskInput" placeholder="New task" />
-            </div>
-            <div class="">
-              <button
-                type="button"
-                id="createTaskButton"
-                class="btn btn-primary"
-              >
-                Create task
-              </button>
-            </div>
+            <h2>Enter your new task</h2>
+            <input type="text" id="newTaskInput" placeholder="New task" />
+
+            <button type="button" id="createTaskButton" class="btn btn-secondary">
+              Create task
+            </button>
           </form>
         </div>
       </div>
