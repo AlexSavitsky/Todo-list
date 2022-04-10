@@ -24,8 +24,10 @@
   <body>
     <noscript>Turn on Java Script</noscript>
 
-    <h1>ToDO List. Sava's demo version</h1>
-    <button id="addTaskButton" class="btn btn-secondary">Add Task</button>
+    <h1 class="title">ToDO List. Sava's demo version</h1>
+    <div class="addTaskButton">
+      <button id="addTaskButton" class="btn btn-secondary">Add Task</button>
+    </div>
 
     <table class="table table-hover">
       <tr>
@@ -41,14 +43,26 @@
     <div class="popup">
       <div class="popup__container">
         <div class="popup__wrapper">
-          <form id="addTaskForm" class="row gy-2 gx-3 align-items-center">
-            <h2>Enter your new task</h2>
-            <input type="text" id="newTaskInput" placeholder="New task" />
-
-            <button type="button" id="createTaskButton" class="btn btn-secondary">
+          <h2 class="title">Enter your new task</h2>
+          
+            <input class="form-control" type="text" id="newTaskInput" placeholder="New task" />
+          
+          <div class="btnGroup">
+            <button
+              type="submit"
+              id="createTaskButton"
+              class="btn btn-secondary"
+            >
               Create task
             </button>
-          </form>
+            <button
+              type="button"
+              id="closeTaskForm"
+              class="btn btn-secondary"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,10 @@
   display: block;
 }
 
+.holdElement{
+  display: none;
+}
+
 .popup {
   position: fixed;
   width: 100%;
@@ -39,11 +43,57 @@
   padding: 50px;
 }
 
+.title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.btnGroup{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#addTaskButton{
+  width: 200px;
+  margin: 10px 20px;
+}
+
+.addTaskButton{
+  display: flex;
+  justify-content: center;
+}
+
+#newTaskInput{
+  display: flex;
+  justify-content: center;
+  width: 93%;
+  margin: 20px 20px;
+}
+
+.done{
+  background-color: rgb(228, 228, 228);
+}
+
+.delitionItem{
+ animation: opacity 1s ease-in-out;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
