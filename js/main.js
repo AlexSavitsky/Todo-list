@@ -5,7 +5,6 @@ const closeTaskButton = document.getElementById("closeTaskForm");
 
 const submitTaskButton = document.getElementById("createTaskButton");
 const newTaskInput = document.getElementById("newTaskInput");
-const dropdownItem = document.getElementById("dropdown-item1");
 
 const secondTbody = document.getElementById("secondTbody");
 let dropdownButtons = [];
@@ -32,10 +31,8 @@ const createTemplate = (task, index) => {
   let column3 = newRow.appendChild(document.createElement("td"));
   tasks[index].id = index + 1;
   column.innerHTML = task.id;
-  debugger
-  column1.innerHTML = `<div type="button" onclick="editTaskDescription(${index}, ${task.description})">${task.description}</div>`;
-  column2.innerHTML = `<div class="priorityButton">
-      <button
+  column1.innerHTML = `<div type="button" onclick="editTaskDescription(${index})">${task.description}</div>`;
+  column2.innerHTML = `<button
         class="${updatePriority(index)}"
         type="button"
         id="dropdownMenuButton"
@@ -46,22 +43,19 @@ const createTemplate = (task, index) => {
       </button>
       <ul
         class="dropdown-menu"
-        aria-labelledby="dropdownMenuButton1"
       >
-        <li><a class="dropdown-item" onclick="changePriority(${index}, 'Todo')" href="#">Todo</a></li>
-        <li><a class="dropdown-item" onclick="changePriority(${index}, 'In progress')" href="#">In progress</a></li>
-        <li><a class="dropdown-item" onclick="changePriority(${index}, 'Done')" href="#">Done</a></li>
+        <li><a class="dropdown-item" onclick="changePriority(${index}, 'Todo')">Todo</a></li>
+        <li><a class="dropdown-item" onclick="changePriority(${index}, 'In progress')">In progress</a></li>
+        <li><a class="dropdown-item" onclick="changePriority(${index}, 'Done')">Done</a></li>
       </ul>`;
-  column3.innerHTML = `<div class="buttons">
+  column3.innerHTML = `
       <button
-        name="deleteTaskButton"
         type="button"
         class="btn btn-outline-danger"
         onclick="deleteTask(${index})"
       >
         Delete
-      </button>
-  </div>`;
+      </button>`;
 };
 
 //Fill to do list
@@ -161,26 +155,23 @@ const filterDoneTasks = () => {
 };
 
 //Edit task description
-const editTaskDescription = (index, description) => {
+const editTaskDescription = (index) => {
   const doneRow = document.getElementsByTagName("tr");
   const descriptionColumn = doneRow[index + 1].getElementsByTagName("td");
   descriptionColumn[1].innerHTML = `
-  <form onsubmit="updateDescription(${index}, this)">
-  <input name="newDescription" value="${description}">
-  <button class='holdElement' type="button"></button>
+  <form  onchange="updateDescription(${index}, this)">
+  <input  name="newDescription" value="${tasks[index].description}">
   </form>`;
-
+  
   updateLocal();
 };
 
-
+//Update description in task array
 const updateDescription = (index, form) => {
   tasks[index].description = form.newDescription.value;
-  console.log(tasks[index].description);
   
   updateLocal();
   fillTodoList();
-  return false;
 };
 
 
