@@ -1,0 +1,110 @@
+#addTaskForm {
+  display: none;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+}
+
+#addTaskForm.open {
+  display: block;
+}
+
+.holdElement{
+  display: none;
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(17, 17, 17, 0.5);
+  transition: all 1s ease;
+  display: none;
+}
+
+.popup_open {
+  display: block;
+}
+
+.popup__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  max-width: 588px;
+  width: 100%;
+}
+
+.popup__wrapper {
+  padding: 50px;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.btnGroup{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#addTaskButton{
+  width: 200px;
+  margin: 10px 20px;
+}
+
+.addTaskButton{
+  display: flex;
+  justify-content: center;
+}
+
+#newTaskInput{
+  display: flex;
+  justify-content: center;
+  width: 93%;
+  margin: 20px 20px;
+}
+
+.done{
+  background-color: rgb(242, 242, 242);
+}
+
+.delitionItem{
+ animation: opacity 1s ease-in-out;
+}
+
+.input{
+  background-color:white;
+  transition: 0.7s ease;
+}
+
+.wrongInput{
+  
+  background-color:  rgb(254, 197, 197) !important;
+  transition: 0s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
