@@ -73,11 +73,22 @@
 }
 
 .done{
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(242, 242, 242);
 }
 
 .delitionItem{
  animation: opacity 1s ease-in-out;
+}
+
+.input{
+  background-color:white;
+  transition: 0.7s ease;
+}
+
+.wrongInput{
+  
+  background-color:  rgb(254, 197, 197) !important;
+  transition: 0s ease;
 }
 
 @keyframes fadeIn {
