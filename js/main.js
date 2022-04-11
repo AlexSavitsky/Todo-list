@@ -93,14 +93,16 @@ const updateLocal = () => {
 
 //Closed hiden form and add new tusk
 submitTaskButton.addEventListener("click", () => {
-  newTaskInput.value === ""
-    ? wrongTaskInput(newTaskInput)
-    : (tasks.push(new Task(newTaskInput.value, tasks.length)),
-      (newTaskInput.value = ""),
-      newTaskInput.classList.remove("wrongInput"),
-      popup.classList.remove("popup_open"),
-      updateLocal(),
-      fillTodoList());
+  if (newTaskInput.value === "") {
+    wrongTaskInput(newTaskInput);
+  } else {
+    tasks.push(new Task(newTaskInput.value, tasks.length));
+    newTaskInput.value = "";
+    newTaskInput.classList.remove("wrongInput");
+    popup.classList.remove("popup_open");
+    updateLocal();
+    fillTodoList();
+  }
 });
 
 //Change priority with dropdown button
@@ -194,7 +196,6 @@ const updateDescription = (index, form) => {
 
 //Add new style for empty inputs
 const wrongTaskInput = (imput) => {
-  console.log(imput);
   imput.classList.add("wrongInput");
   imput.placeholder = "Enter task name";
   setTimeout(() => {
